@@ -92,7 +92,7 @@ Player::Player(b2World &world,
     footFixtureDef.isSensor = true;
     
     b2Fixture* footSensorFixture = body->CreateFixture(&footFixtureDef);
-    footSensorFixture->SetUserData( (void*)3 );
+    footSensorFixture->SetUserData( (void*)1 );
     
     move_state = MoveState::MS_STOP;
 }
@@ -111,41 +111,41 @@ void Player::Jump() {
 }
 
 void Player::BeginContact(b2Contact* contact) {
-    /*
+    
     long long sig1 = reinterpret_cast<long long> (contact->GetFixtureA()->GetUserData());
     int fixtureUserData = static_cast<int>(sig1);
     
-    if ( fixtureUserData == 3 )
+    if ( fixtureUserData == 1 )
         this->is_on_the_ground = true;
 
     sig1 = reinterpret_cast<long long> (contact->GetFixtureB()->GetUserData());
     fixtureUserData = static_cast<int>(sig1);
     
-    if ( fixtureUserData == 3 )
+    if ( fixtureUserData == 1 )
         this->is_on_the_ground = true ;
-    */
-    this->is_on_the_ground = true;
+    
+    //this->is_on_the_ground = true;
     if (this->is_on_the_ground)
         std::cout << "floor, x: " << this->body->GetPosition().x << " y: "<< this->body->GetPosition().y << std::endl;
 
 }
 
 void Player::EndContact(b2Contact* contact) {
-    /*
+    
     long long sig1 = reinterpret_cast<long long> (contact->GetFixtureA()->GetUserData());
     int fixtureUserData = static_cast<int>(sig1);
     
     
-    if ( fixtureUserData == 3 )
+    if ( fixtureUserData == 1 )
         this->is_on_the_ground = false;
     
     sig1 = reinterpret_cast<long long> (contact->GetFixtureB()->GetUserData());
     fixtureUserData = static_cast<int>(sig1);
     
-    if ( fixtureUserData == 3 )
+    if ( fixtureUserData == 1 )
         this->is_on_the_ground = false;
-    */
-    this->is_on_the_ground = false;
+    
+    //this->is_on_the_ground = false;
     if (!this->is_on_the_ground)
         std::cout << "air,   x: " << this->body->GetPosition().x << " y: "<< this->body->GetPosition().y << std::endl;
 }

@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
     glutSpecialUpFunc(keyboardSpecialUp);
     glutSpecialFunc(keyboardSpecial);
 
-    //glutFullScreen();
+    glutFullScreen();
     glutMainLoop();
 
     

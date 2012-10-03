@@ -12,8 +12,7 @@
 
 void initialize() {
     // terreno
-
-    
+    /*
     for (int i=0; i<30; i++)
         boxes.push_back(new ScenarioBox(world, 32*i, 32*0, 32, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
     
@@ -29,6 +28,18 @@ void initialize() {
         for (int g=0; g<90-i; g++)
             boxes.push_back(new ScenarioBox(world, 32*(30+i+g), 32*j, 32, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
     }
+     */
+    
+    //floor
+    boxes.push_back(new ScenarioBox(world, 32*0, 32*0, 32*1000, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
+    
+    
+    //7 degraus
+    boxes.push_back(new ScenarioBox(world, 32*30+32*0, 32*1, 32*25-32*0, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
+    boxes.push_back(new ScenarioBox(world, 32*30+32*1, 32*2, 32*25-32*1, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
+    boxes.push_back(new ScenarioBox(world, 32*30+32*2, 32*3, 32*25-32*2, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
+    boxes.push_back(new ScenarioBox(world, 32*30+32*3, 32*4, 32*25-32*3, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
+    boxes.push_back(new ScenarioBox(world, 32*30+32*4, 32*5, 32*25-32*4, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
     
     boxes.push_back(player);
     
