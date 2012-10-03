@@ -20,7 +20,7 @@ SimpleBox::SimpleBox(b2World &world,
         float density,
         float friction,
         b2BodyType body_type,
-        float r, float g, float b) {
+                     float r, float g, float b) : world(world) {
         
     this->w = w;
     this->h = h;
@@ -85,7 +85,7 @@ Player::Player(b2World &world,
     //add foot sensor fixture
 
     b2PolygonShape footShape;
-    footShape.SetAsBox(w/10, h/10, b2Vec2(0,-h-10), 0);
+    footShape.SetAsBox(w/4, h/4, b2Vec2(0,-h/3), 0);
     
     b2FixtureDef footFixtureDef;
     footFixtureDef.shape = &footShape;
@@ -102,6 +102,7 @@ void Player::SetMoveState(MoveState move_state) {
 }
 
 void Player::Jump() {
+    
     if ( is_on_the_ground ) {
         b2Vec2 vel = body->GetLinearVelocity();
         vel.y = 30;
@@ -110,31 +111,43 @@ void Player::Jump() {
 }
 
 void Player::BeginContact(b2Contact* contact) {
-    bool on_the_ground = false;
-    
+    /*
     long long sig1 = reinterpret_cast<long long> (contact->GetFixtureA()->GetUserData());
     int fixtureUserData = static_cast<int>(sig1);
     
-
     if ( fixtureUserData == 3 )
-        on_the_ground = true;
-
+        this->is_on_the_ground = true;
 
     sig1 = reinterpret_cast<long long> (contact->GetFixtureB()->GetUserData());
     fixtureUserData = static_cast<int>(sig1);
     
     if ( fixtureUserData == 3 )
-        on_the_ground = true;
-    
-    if (on_the_ground)
-        std::cout << "no chao!!" << std::endl;
-    //this->is_on_the_ground = true;
+        this->is_on_the_ground = true ;
+    */
+    this->is_on_the_ground = true;
+    if (this->is_on_the_ground)
+        std::cout << "floor, x: " << this->body->GetPosition().x << " y: "<< this->body->GetPosition().y << std::endl;
 
 }
 
 void Player::EndContact(b2Contact* contact) {
-    //std::cout << "no ar!!" << std::endl;
+    /*
+    long long sig1 = reinterpret_cast<long long> (contact->GetFixtureA()->GetUserData());
+    int fixtureUserData = static_cast<int>(sig1);
+    
+    
+    if ( fixtureUserData == 3 )
+        this->is_on_the_ground = false;
+    
+    sig1 = reinterpret_cast<long long> (contact->GetFixtureB()->GetUserData());
+    fixtureUserData = static_cast<int>(sig1);
+    
+    if ( fixtureUserData == 3 )
+        this->is_on_the_ground = false;
+    */
     this->is_on_the_ground = false;
+    if (!this->is_on_the_ground)
+        std::cout << "air,   x: " << this->body->GetPosition().x << " y: "<< this->body->GetPosition().y << std::endl;
 }
 
 
@@ -151,7 +164,7 @@ void Player::Paint() {
         case MS_STOP:  vel.x *=  0.987; break;
         case MS_RIGHT: vel.x = b2Min( vel.x + 0.1f,  20.0f ); break;
     }
-    
+
     body->SetLinearVelocity( vel );
     
     glVertex2f(body->GetPosition().x-(w/2), body->GetPosition().y-(h/2));

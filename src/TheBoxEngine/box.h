@@ -19,7 +19,7 @@ public:
 
     float w, h, r, g, b;
     b2Body* body;
-    
+    b2World &world;
     
     SimpleBox(b2World &world,
         float x,
