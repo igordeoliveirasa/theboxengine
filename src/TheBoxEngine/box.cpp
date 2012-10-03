@@ -6,7 +6,13 @@
 //  Copyright (c) 2012 Igor de Oliveira Sa. All rights reserved.
 //
 
+#ifdef _WIN32
+#include <GL/glut.h>
+#else
 #include <GLUT/glut.h>
+#endif
+
+
 #include "box.h"
 #include <inttypes.h>
 #include <iostream>

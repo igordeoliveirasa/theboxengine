@@ -6,8 +6,14 @@
 //  Copyright (c) 2012 Igor de Oliveira Sa. All rights reserved.
 //
 
-#include "the_box_engine.h"
+#ifdef _WIN32
+#include <GL/glut.h>
+#else
 #include <GLUT/glut.h>
+#endif
+
+
+#include "the_box_engine.h"
 #include "controllers.h"
 
 TheBoxEngine::TheBoxEngine() {}
