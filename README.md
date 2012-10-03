@@ -1,7 +1,7 @@
 theboxengine
 ============
 
-Multi-Platform 2D Game Engine
+Multi-Platform 2D Game Engine.
 
 ============
 
