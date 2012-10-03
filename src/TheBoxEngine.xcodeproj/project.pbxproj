@@ -52,6 +52,7 @@
 		78BBC7B1161BE0C200EFF6BE /* b2WeldJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78BBC780161BE0C200EFF6BE /* b2WeldJoint.cpp */; };
 		78BBC7B2161BE0C200EFF6BE /* b2WheelJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78BBC782161BE0C200EFF6BE /* b2WheelJoint.cpp */; };
 		78BBC7B3161BE0C200EFF6BE /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78BBC785161BE0C200EFF6BE /* b2Rope.cpp */; };
+		78C12AC6161CA199005B89A6 /* the_box_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C12AC5161CA199005B89A6 /* the_box_engine.cpp */; };
 		78DB3CA4161BDF9A00C1D5B8 /* TheBoxEngine.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 78DB3CA3161BDF9A00C1D5B8 /* TheBoxEngine.1 */; };
 		78DB3CB0161BDFC400C1D5B8 /* box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78DB3CAA161BDFC400C1D5B8 /* box.cpp */; };
 		78DB3CB1161BDFC400C1D5B8 /* controllers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78DB3CAC161BDFC400C1D5B8 /* controllers.cpp */; };
@@ -167,6 +168,8 @@
 		78BBC783161BE0C200EFF6BE /* b2WheelJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2WheelJoint.h; sourceTree = "<group>"; };
 		78BBC785161BE0C200EFF6BE /* b2Rope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2Rope.cpp; sourceTree = "<group>"; };
 		78BBC786161BE0C200EFF6BE /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
+		78C12AC3161CA18E005B89A6 /* the_box_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = the_box_engine.h; sourceTree = "<group>"; };
+		78C12AC5161CA199005B89A6 /* the_box_engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = the_box_engine.cpp; sourceTree = "<group>"; };
 		78DB3C9D161BDF9A00C1D5B8 /* TheBoxEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TheBoxEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		78DB3CA3161BDF9A00C1D5B8 /* TheBoxEngine.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = TheBoxEngine.1; sourceTree = "<group>"; };
 		78DB3CAA161BDFC400C1D5B8 /* box.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = box.cpp; sourceTree = "<group>"; };
@@ -386,6 +389,8 @@
 				78DB3CAE161BDFC400C1D5B8 /* globals.h */,
 				78DB3CAF161BDFC400C1D5B8 /* main.cpp */,
 				78DB3CA3161BDF9A00C1D5B8 /* TheBoxEngine.1 */,
+				78C12AC3161CA18E005B89A6 /* the_box_engine.h */,
+				78C12AC5161CA199005B89A6 /* the_box_engine.cpp */,
 			);
 			path = TheBoxEngine;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 				78BBC7B1161BE0C200EFF6BE /* b2WeldJoint.cpp in Sources */,
 				78BBC7B2161BE0C200EFF6BE /* b2WheelJoint.cpp in Sources */,
 				78BBC7B3161BE0C200EFF6BE /* b2Rope.cpp in Sources */,
+				78C12AC6161CA199005B89A6 /* the_box_engine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
