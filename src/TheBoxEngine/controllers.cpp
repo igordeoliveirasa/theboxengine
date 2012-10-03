@@ -12,23 +12,6 @@
 
 void initialize() {
     // terreno
-    /*
-    for (int i=0; i<30; i++)
-        boxes.push_back(new ScenarioBox(world, 32*i, 32*0, 32, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
-    
-    for (int i=32; i<500; i++)
-        boxes.push_back(new ScenarioBox(world, 32*i, 32*0, 32, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
-    
-    for (int i=0; i<5; i++)
-        boxes.push_back(new ScenarioBox(world, 32*(20+i), 32*1, 32, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
-    
-    int j=0;
-    for (int i=30; i<90; i++) {
-        j++;
-        for (int g=0; g<90-i; g++)
-            boxes.push_back(new ScenarioBox(world, 32*(30+i+g), 32*j, 32, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
-    }
-     */
     
     //floor
     boxes.push_back(new ScenarioBox(world, 32*0, 32*0, 32*1000, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
