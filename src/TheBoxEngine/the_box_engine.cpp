@@ -12,19 +12,20 @@
 #include <GLUT/glut.h>
 #endif
 
+#define ILUT_USE_OPENGL
+#include <IL/il.h>
+#include <IL/ilu.h>
+#include <IL/ilut.h>
+
 
 #include "the_box_engine.h"
 #include "controllers.h"
 
-TheBoxEngine::TheBoxEngine() {}
-
-void TheBoxEngine::start(int argc, char** argv) {
-    initialize();
-    
+TheBoxEngine::TheBoxEngine(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitWindowSize(500, 500);
     glutInitWindowPosition(100, 100);
-    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA|GLUT_DEPTH);
+    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA|GLUT_DEPTH|GLUT_ALPHA);
     glutCreateWindow("Tadaaa!");
     glEnable(GL_DEPTH_TEST);
     glutDisplayFunc(display);
@@ -36,5 +37,19 @@ void TheBoxEngine::start(int argc, char** argv) {
     glutSpecialFunc(keyboardSpecial);
     
     glutFullScreen();
+
+    //devIL
+    ilInit ();
+    iluInit();
+    ilutInit();
+    ilEnable (IL_CONV_PAL);
+    ilutEnable (ILUT_OPENGL_CONV);
+    glEnable       (GL_TEXTURE_2D);
+    ilutRenderer (ILUT_OPENGL);
+    
+}
+
+void TheBoxEngine::start() {
+    initialize();
     glutMainLoop();
 }

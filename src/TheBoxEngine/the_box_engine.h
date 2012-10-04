@@ -11,8 +11,8 @@
 
 class TheBoxEngine {
 public:
-    TheBoxEngine();
-    void start(int argc, char** argv);
+    TheBoxEngine(int argc, char** argv);
+    void start();
 };
 
 #endif

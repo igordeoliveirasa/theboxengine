@@ -14,9 +14,8 @@
 #include "the_box_engine.h"
 
 int main(int argc, char **argv) {
-    TheBoxEngine the_box_engine;
-    the_box_engine.start(argc, argv);
+    TheBoxEngine the_box_engine(argc, argv);
+    the_box_engine.start();
 }
-
 
 

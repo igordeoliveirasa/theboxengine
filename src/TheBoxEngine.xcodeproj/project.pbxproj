@@ -53,6 +53,9 @@
 		78BBC7B2161BE0C200EFF6BE /* b2WheelJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78BBC782161BE0C200EFF6BE /* b2WheelJoint.cpp */; };
 		78BBC7B3161BE0C200EFF6BE /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78BBC785161BE0C200EFF6BE /* b2Rope.cpp */; };
 		78C12AC6161CA199005B89A6 /* the_box_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C12AC5161CA199005B89A6 /* the_box_engine.cpp */; };
+		78C12AFC161D14A8005B89A6 /* libIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C12AF9161D14A8005B89A6 /* libIL.a */; };
+		78C12AFD161D14A8005B89A6 /* libILU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C12AFA161D14A8005B89A6 /* libILU.a */; };
+		78C12AFE161D14A8005B89A6 /* libILUT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C12AFB161D14A8005B89A6 /* libILUT.a */; };
 		78DB3CA4161BDF9A00C1D5B8 /* TheBoxEngine.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 78DB3CA3161BDF9A00C1D5B8 /* TheBoxEngine.1 */; };
 		78DB3CB0161BDFC400C1D5B8 /* box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78DB3CAA161BDFC400C1D5B8 /* box.cpp */; };
 		78DB3CB1161BDFC400C1D5B8 /* controllers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78DB3CAC161BDFC400C1D5B8 /* controllers.cpp */; };
@@ -170,6 +173,9 @@
 		78BBC786161BE0C200EFF6BE /* b2Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = b2Rope.h; sourceTree = "<group>"; };
 		78C12AC3161CA18E005B89A6 /* the_box_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = the_box_engine.h; sourceTree = "<group>"; };
 		78C12AC5161CA199005B89A6 /* the_box_engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = the_box_engine.cpp; sourceTree = "<group>"; };
+		78C12AF9161D14A8005B89A6 /* libIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIL.a; path = ../../../../../usr/local/lib/libIL.a; sourceTree = "<group>"; };
+		78C12AFA161D14A8005B89A6 /* libILU.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libILU.a; path = ../../../../../usr/local/lib/libILU.a; sourceTree = "<group>"; };
+		78C12AFB161D14A8005B89A6 /* libILUT.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libILUT.a; path = ../../../../../usr/local/lib/libILUT.a; sourceTree = "<group>"; };
 		78DB3C9D161BDF9A00C1D5B8 /* TheBoxEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TheBoxEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		78DB3CA3161BDF9A00C1D5B8 /* TheBoxEngine.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = TheBoxEngine.1; sourceTree = "<group>"; };
 		78DB3CAA161BDFC400C1D5B8 /* box.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = box.cpp; sourceTree = "<group>"; };
@@ -189,6 +195,9 @@
 			files = (
 				78DB3CB6161BDFD600C1D5B8 /* OpenGL.framework in Frameworks */,
 				78DB3CB4161BDFD200C1D5B8 /* GLUT.framework in Frameworks */,
+				78C12AFC161D14A8005B89A6 /* libIL.a in Frameworks */,
+				78C12AFD161D14A8005B89A6 /* libILU.a in Frameworks */,
+				78C12AFE161D14A8005B89A6 /* libILUT.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +372,9 @@
 		78DB3C92161BDF9A00C1D5B8 = {
 			isa = PBXGroup;
 			children = (
+				78C12AF9161D14A8005B89A6 /* libIL.a */,
+				78C12AFA161D14A8005B89A6 /* libILU.a */,
+				78C12AFB161D14A8005B89A6 /* libILUT.a */,
 				78DB3CB5161BDFD600C1D5B8 /* OpenGL.framework */,
 				78DB3CB3161BDFD200C1D5B8 /* GLUT.framework */,
 				78DB3CA0161BDF9A00C1D5B8 /* TheBoxEngine */,
@@ -553,7 +565,11 @@
 		78DB3CA8161BDF9A00C1D5B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../3rd\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../3rd\"",
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -562,7 +578,11 @@
 		78DB3CA9161BDF9A00C1D5B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../3rd\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../3rd\"",
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

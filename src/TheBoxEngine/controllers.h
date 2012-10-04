@@ -16,7 +16,5 @@ void reshape(int w, int h);
 void keyboard(unsigned char key, int x, int y);
 void keyboardSpecial(int key, int x, int y);
 void keyboardSpecialUp(int key, int x, int y);
-
 void initialize();
-
 #endif

@@ -12,22 +12,25 @@
 #include <GLUT/glut.h>
 #endif
 
+
+
 #include "controllers.h"
 #include "globals.h"
 
 void initialize() {
     // terreno
+    player = new Player(world,32*5,32*15,32,32,1,0,b2_dynamicBody, "/Users/igor/Development/theboxengine/res/images/frog.gif");
     
     //floor
-    boxes.push_back(new ScenarioBox(world, 32*0, 32*0, 32*1000, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
+    boxes.push_back(new ScenarioBox(world, 32*0, 32*0, 32*1000, 32, 0, 0, b2_staticBody, NULL, 0.5, 0.7, 0));
     
     
     //7 degraus
-    boxes.push_back(new ScenarioBox(world, 32*30+32*0, 32*1, 32*25-32*0, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
-    boxes.push_back(new ScenarioBox(world, 32*30+32*1, 32*2, 32*25-32*1, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
-    boxes.push_back(new ScenarioBox(world, 32*30+32*2, 32*3, 32*25-32*2, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
-    boxes.push_back(new ScenarioBox(world, 32*30+32*3, 32*4, 32*25-32*3, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
-    boxes.push_back(new ScenarioBox(world, 32*30+32*4, 32*5, 32*25-32*4, 32, 0, 0, b2_staticBody, 0.5, 0.7, 0));
+    boxes.push_back(new ScenarioBox(world, 32*30+32*0, 32*1, 32*25-32*0, 32, 0, 0, b2_staticBody, NULL, 0.5, 0.7, 0));
+    boxes.push_back(new ScenarioBox(world, 32*30+32*1, 32*2, 32*25-32*1, 32, 0, 0, b2_staticBody, NULL, 0.5, 0.7, 0));
+    boxes.push_back(new ScenarioBox(world, 32*30+32*2, 32*3, 32*25-32*2, 32, 0, 0, b2_staticBody, NULL, 0.5, 0.7, 0));
+    boxes.push_back(new ScenarioBox(world, 32*30+32*3, 32*4, 32*25-32*3, 32, 0, 0, b2_staticBody, NULL, 0.5, 0.7, 0));
+    boxes.push_back(new ScenarioBox(world, 32*30+32*4, 32*5, 32*25-32*4, 32, 0, 0, b2_staticBody, NULL, 0.5, 0.7, 0));
     
     boxes.push_back(player);
     
