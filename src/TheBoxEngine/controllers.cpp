@@ -24,7 +24,6 @@ void initialize() {
     //floor
     boxes.push_back(new ScenarioBox(world, 32*0, 32*0, 32*1000, 32, 0, 0, b2_staticBody, NULL, 0.5, 0.7, 0));
     
-    
     //7 degraus
     boxes.push_back(new ScenarioBox(world, 32*30+32*0, 32*1, 32*25-32*0, 32, 0, 0, b2_staticBody, NULL, 0.5, 0.7, 0));
     boxes.push_back(new ScenarioBox(world, 32*30+32*1, 32*2, 32*25-32*1, 32, 0, 0, b2_staticBody, NULL, 0.5, 0.7, 0));
@@ -42,7 +41,7 @@ void display() {
     
     world.Step(timeStep, velocityIterations, positionIterations);
     
-    glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+    glClearColor(1,1,1,1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     glMatrixMode(GL_MODELVIEW);
@@ -64,6 +63,7 @@ void display() {
         boxes[i]->Paint();
     }
     
+    //player->Paint();
     
     glutSwapBuffers();
 }

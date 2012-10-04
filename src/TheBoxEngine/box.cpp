@@ -61,6 +61,9 @@ SimpleBox::SimpleBox(b2World &world,
     // Generate the main image name to use.
     
     if (texture_file_path!=NULL) {
+        
+        
+        /*
         GLuint image_id=0;
         ilGenImages(1, &image_id);
         
@@ -69,6 +72,9 @@ SimpleBox::SimpleBox(b2World &world,
         
         // Loads the image specified by File into the ImgId image.
         if (!ilLoadImage (texture_file_path)) {}
+         */
+        
+        
         
         // Make sure the window is in the same proportions as the image.
         //  Generate the appropriate width x height less than or equal to MAX_X x MAX_Y.
@@ -77,14 +83,10 @@ SimpleBox::SimpleBox(b2World &world,
         //Width  = ilGetInteger (IL_IMAGE_WIDTH);
         //Height = ilGetInteger (IL_IMAGE_HEIGHT);
         
-        //glEnable       (GL_TEXTURE_2D);  // Enable texturing.
-        //glMatrixMode   (GL_PROJECTION);  // We want to use the projection matrix.
-        //glLoadIdentity ();  // Loads the identity matrix into the current matrix.
-        texture_id = ilutGLBindTexImage();
-
-                
+        texture_id = ilutGLLoadImage(texture_file_path);//ilutGLBindTexImage();
+        ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
         // We're done with our image, so we go ahead and delete it.
-        ilDeleteImages(1, &image_id);
+        //ilDeleteImages(1, &image_id);
     }
 
 }
@@ -103,15 +105,28 @@ ScenarioBox::ScenarioBox(b2World &world,
 
 void ScenarioBox::Paint() {
 
+    if (texture_id!=TEXTURE_ID_NULL) {
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture (GL_TEXTURE_2D, texture_id);
+    }
+    else {
+        glColor3f(r, g, b);
+    }
+
     glBegin(GL_POLYGON);
     glColor3f(r, g, b);
     
+    glTexCoord2f (0, 0);
     glVertex2f(body->GetPosition().x-(w/2), body->GetPosition().y-(h/2));
+    glTexCoord2f (1, 0);
     glVertex2f(body->GetPosition().x+(w/2), body->GetPosition().y-(h/2));
+    glTexCoord2f (1, 1);
     glVertex2f(body->GetPosition().x+(w/2), body->GetPosition().y+(h/2));
+    glTexCoord2f (0, 1);
     glVertex2f(body->GetPosition().x-(w/2), body->GetPosition().y+(h/2));
     
     glEnd();
+    glDisable(GL_TEXTURE_2D);
 }
 
 
@@ -199,15 +214,17 @@ void Player::EndContact(b2Contact* contact) {
 
 void Player::Paint() {
     
-    
+    if (texture_id!=TEXTURE_ID_NULL) {
+        glEnable(GL_TEXTURE_2D);
+        //glEnable(GL_BLEND);
+        //glBlendFunc(GL_SRC_ALPHA, GL_ZERO);
+    }
+    else {
+        glColor3f(r, g, b);
+    }
+
     glBegin(GL_POLYGON);
     
-    //if (texture_id!=TEXTURE_ID_NULL) {
-    //    glBindTexture (GL_TEXTURE_2D, texture_id);
-   // }
-    //else {
-        glColor3f(r, g, b);
-    //}
     
     b2Vec2 vel = body->GetLinearVelocity();
     switch ( move_state )
@@ -219,14 +236,18 @@ void Player::Paint() {
 
     body->SetLinearVelocity( vel );
     
-    //glTexCoord2f (0, 0);
+    glTexCoord2f (0, 0);
     glVertex2f(body->GetPosition().x-(w/2), body->GetPosition().y-(h/2));
-    //glTexCoord2f (1, 0);
+    glTexCoord2f (1, 0);
     glVertex2f(body->GetPosition().x+(w/2), body->GetPosition().y-(h/2));
-    //glTexCoord2f (1, 1);
+    glTexCoord2f (1, 1);
     glVertex2f(body->GetPosition().x+(w/2), body->GetPosition().y+(h/2));
-    //glTexCoord2f (0, 1);
+    glTexCoord2f (0, 1);
     glVertex2f(body->GetPosition().x-(w/2), body->GetPosition().y+(h/2));
     
     glEnd();
+    
+    glDisable(GL_TEXTURE_2D);
+    glDisable(GL_BLEND);
+
 }

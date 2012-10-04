@@ -44,7 +44,6 @@ TheBoxEngine::TheBoxEngine(int argc, char** argv) {
     ilutInit();
     ilEnable (IL_CONV_PAL);
     ilutEnable (ILUT_OPENGL_CONV);
-    glEnable       (GL_TEXTURE_2D);
     ilutRenderer (ILUT_OPENGL);
     
 }
